@@ -1,0 +1,188 @@
+//
+//  ViewController.swift
+//  Snake Game
+//
+//  Created by Josh on 9/24/15.
+//  Copyright © 2015 Josh Bradley. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    var board: GameMap!
+    var timer: NSTimer!
+    var snake: SnakeLocation!
+    
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    @IBOutlet weak var scoreDisplay: UILabel!
+    @IBOutlet weak var lostLabel: UILabel!
+    @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var highScoreDisplay: UILabel!
+    
+    
+    
+    @IBAction func PlayAgain(sender: AnyObject) {
+        snake.direction = "start"
+        
+        scoreDisplay.text = "0"
+        //board.resetApple()
+        
+        
+        lostLabel.hidden = true
+        playAgain.hidden = true
+        
+        
+        lostLabel.center = CGPointMake(lostLabel.center.x - 400, lostLabel.center.y)
+        playAgain.center = CGPointMake(playAgain.center.x - 400, playAgain.center.y)
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+    // swipe readers
+    @IBAction func swipeRight(sender: AnyObject) {
+        if snake.direction != "left" {
+            snake.direction = "right"
+        }
+    }
+    @IBAction func swipeLeft(sender: AnyObject) {
+        if snake.direction != "right" {
+            snake.direction = "left"
+        }
+    }
+    @IBAction func swipeUp(sender: AnyObject) {
+        if snake.direction != "down" {
+            snake.direction = "up"
+        }
+    }
+    @IBAction func swipeDown(sender: AnyObject) {
+        if snake.direction != "up" {
+            snake.direction = "down"
+        }
+    }
+    // for buttons
+    
+    
+    @IBOutlet weak var canvas: CanvasView!
+    
+   
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        board = GameMap()
+        board.makeBoard()
+        
+        snake = SnakeLocation()
+        snake.reset(board)
+        
+        
+        prefersStatusBarHidden()
+        canvas.map = board
+        canvas.snake = snake
+        
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
+        //hide end label
+        lostLabel.hidden = true
+        playAgain.hidden = true
+        highScoreDisplay.text = "\(snake.highScore)"
+        
+        
+   
+    }
+    
+    func update() {
+        if snake.direction == "start" {
+            return
+        }
+        
+        var head = snake.tail[0]
+        // collition detector
+        if (head.x >= board.sizeX - 1) {
+            snake.direction = "stop"
+        }else if (head.x <= 0){
+            snake.direction = "stop"
+        }else if (head.y >= board.sizeY - 1) {
+            snake.direction = "stop"
+        }else if (head.y <= 0){
+            snake.direction = "stop"
+        }
+        
+        // Move our snake
+        let newhead = Point(X:head.x, Y:head.y)
+        if (snake.direction == "left") {
+            newhead.x -= 1
+        }else if (snake.direction == "right") {
+            newhead.x += 1
+        }else if ( snake.direction == "down") {
+            newhead.y += 1
+        }else if ( snake.direction == "up"){
+            newhead.y -= 1
+        }
+        
+        // Add the new head to the FRONT of the tail
+        snake.tail = [newhead] + snake.tail
+        // CUT the tail by the size
+        if snake.tail.count > snake.size {
+            snake.tail = Array(snake.tail[0...snake.size])
+        }
+        
+        // Check if we crashed into ourself
+        for var i = 1; i < snake.tail.count; i++ {
+            let t = snake.tail[i]
+            if snake.tail[0].x == t.x && snake.tail[0].y == t.y {
+                snake.direction = "stop";
+            }
+        }
+        
+        // stop game and display end label
+        head = newhead
+        if (snake.direction == "stop"){
+            snake.reset(board)
+            timer.invalidate()
+            highScoreDisplay.text = "\(snake.highScore)"
+            
+            
+            lostLabel.hidden = false
+            playAgain.hidden = false
+            
+            self.playAgain.center.x = -200
+            self.lostLabel.center.x = -200
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                
+                self.playAgain.center = CGPointMake(self.screenSize.width / 2, self.playAgain.center.y)
+                self.lostLabel.center = CGPointMake(self.screenSize.width / 2, self.lostLabel.center.y)
+            })
+            
+        // spawn in snake
+        }else if (snake.direction == "start"){
+            snake.tail = [Point(X:12, Y:11)]
+        }
+        
+        // eat apples
+        for (var i = 0; i < board.apples.count; i++) {
+            let apple = board.apples[i]
+            if (head.x == apple.x && head.y == apple.y) {
+                snake.tail.append(Point(X: apple.x, Y: apple.y))
+                snake.eat()
+                board.resetApple(i)
+                print(snake.score)
+                
+                scoreDisplay.text = "\(snake.score)"
+            }
+        }
+        
+        //update board
+        canvas.setNeedsDisplay()
+        
+    }
+
+    
+
+}
+
