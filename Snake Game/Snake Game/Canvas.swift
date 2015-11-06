@@ -2,7 +2,6 @@
 //  Canvas.swift
 //  Snake Game
 //
-//  Created by Josh on 10/13/15.
 //  Copyright © 2015 Josh Bradley. All rights reserved.
 //
 

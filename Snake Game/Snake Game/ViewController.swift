@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  Snake Game
 //
-//  Created by Josh on 9/24/15.
 //  Copyright © 2015 Josh Bradley. All rights reserved.
 //
 
