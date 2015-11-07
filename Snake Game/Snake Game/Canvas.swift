@@ -21,8 +21,7 @@ class CanvasView: UIView {
                 let tile = map.game[y][x]
                 
                 // Draw the inside
-                // + map.yoffset
-                // + map.xoffset
+                
                 if (tile == 0) {
                     CGContextBeginPath(context);
                     CGContextMoveToPoint(context, CGFloat((x * tileW) + map.xoffset ), CGFloat(y * tileH + map.yoffset))

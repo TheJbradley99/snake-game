@@ -19,6 +19,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lostLabel: UILabel!
     @IBOutlet weak var playAgain: UIButton!
     @IBOutlet weak var highScoreDisplay: UILabel!
+    @IBOutlet weak var pauseButton1: UIBarButtonItem!
+    
+    var pause = false
+    @IBAction func pauseButton(sender: AnyObject) {
+        if !pause {
+            timer.invalidate()
+            pause = true
+            
+        }else {
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
+            pause = false
+            
+        }
+    
+    }
     
     
     

@@ -16,10 +16,10 @@ var tileH = 16
 class GameMap: NSObject {
     var apples: Array<Point> = []
     
-    var sizeY = Int(ViewController().screenSize.height - 21) / tileW
+    var sizeY = Int(ViewController().screenSize.height - 44) / tileW
     var sizeX = Int(ViewController().screenSize.width) / tileH
     
-    var yoffset = Int(((Double(ViewController().screenSize.height) - 21.0) % tileW1) / 2.0)
+    var yoffset = Int(((Double(ViewController().screenSize.height) - 44.0) % tileW1) / 2.0)
     var xoffset = Int(((Double(ViewController().screenSize.width)) % tileH1) / 2.0)
     
     func resetApple(index: Int){
