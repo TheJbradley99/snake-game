@@ -20,6 +20,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playAgain: UIButton!
     @IBOutlet weak var highScoreDisplay: UILabel!
     @IBOutlet weak var pauseButton1: UIBarButtonItem!
+    @IBOutlet weak var resume: UIButton!
+    @IBOutlet weak var options: UIButton!
+    @IBOutlet weak var menu: UIButton!
+    @IBOutlet weak var darkView: UIView!
+    @IBOutlet weak var countDownLabel: UILabel!
     
     var pause = false
     @IBAction func pauseButton(sender: AnyObject) {
@@ -27,6 +32,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             timer.invalidate()
             pause = true
             
+            
+            UIView.animateWithDuration(0.5, animations: {
+                self.darkView.alpha = 1.0
+                self.resume.alpha = 1.0
+                self.options.alpha = 1.0
+                self.menu.alpha = 1.0
+                
+            })
         }else {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
             pause = false
@@ -34,8 +47,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     
     }
+    var seconds = 3
+    @IBAction func resumeButton(sender: AnyObject) {
+        pause = false
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.darkView.alpha = 0
+            self.resume.alpha = 0
+            self.options.alpha = 0
+            self.menu.alpha = 0
+            self.countDownLabel.alpha = 1
+        })
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "subtractTime", userInfo: nil, repeats: true)
+    }
     
-    
+    func subtractTime() {
+        
+        seconds--
+        countDownLabel.text = "\(seconds)"
+        
+        if seconds == 0 {
+            timer.invalidate()
+            self.countDownLabel.alpha = 0
+            seconds = 3
+            countDownLabel.text = "\(seconds)"
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
+            
+        }
+    }
     
     @IBAction func PlayAgain(sender: AnyObject) {
         snake.direction = "start"
@@ -104,7 +144,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //hide end label
         lostLabel.hidden = true
         playAgain.hidden = true
+        
         highScoreDisplay.text = "\(snake.highScore)"
+        
+        self.darkView.alpha = 0
+        self.resume.alpha = 0
+        self.options.alpha = 0
+        self.menu.alpha = 0
+        self.countDownLabel.alpha = 0
         
         
    

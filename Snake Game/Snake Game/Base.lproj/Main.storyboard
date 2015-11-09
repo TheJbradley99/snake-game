@@ -30,6 +30,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nqN-A2-Txg"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxi-g4-Z2w">
+                                <rect key="frame" x="242" y="9" width="51" height="25"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNW-4X-xx3">
                                 <rect key="frame" x="296" y="9" width="46" height="25"/>
                                 <animations/>
@@ -79,10 +86,38 @@
                                     <constraint firstItem="wpG-7U-US4" firstAttribute="centerX" secondItem="JfL-aX-5nm" secondAttribute="centerX" id="Np2-b1-X7f"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxi-g4-Z2w">
-                                <rect key="frame" x="242" y="9" width="51" height="25"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRc-2y-rZZ">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="669"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNu-f2-lp3">
+                                        <rect key="frame" x="133" y="317" width="109" height="35"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Options"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozy-hW-YKj">
+                                        <rect key="frame" x="133" y="369" width="109" height="35"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" Menu"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-G8-5T8">
+                                        <rect key="frame" x="133" y="265" width="109" height="35"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.38700143914473684" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Resume"/>
+                                        <connections>
+                                            <action selector="resumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3r-Oi-4PZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVg-KR-zSw">
+                                <rect key="frame" x="119" y="300" width="136" height="68"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -116,10 +151,15 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="canvas" destination="JfL-aX-5nm" id="ciz-Ce-ZDa"/>
+                        <outlet property="countDownLabel" destination="ZVg-KR-zSw" id="Lnq-wp-bOY"/>
+                        <outlet property="darkView" destination="tRc-2y-rZZ" id="vwq-Hh-qUz"/>
                         <outlet property="highScoreDisplay" destination="dU7-5A-XJK" id="d1B-TK-8DH"/>
                         <outlet property="lostLabel" destination="wpG-7U-US4" id="AhS-1f-kdx"/>
+                        <outlet property="menu" destination="Ozy-hW-YKj" id="qVf-8b-9j8"/>
+                        <outlet property="options" destination="LNu-f2-lp3" id="Q1J-H3-o5U"/>
                         <outlet property="pauseButton1" destination="sAf-DR-j3C" id="Nqh-u2-WoK"/>
                         <outlet property="playAgain" destination="b4P-wM-VnI" id="eI3-BV-Xmj"/>
+                        <outlet property="resume" destination="vbd-G8-5T8" id="PUm-2X-9iG"/>
                         <outlet property="scoreDisplay" destination="iNW-4X-xx3" id="Ai1-Dh-Oj1"/>
                     </connections>
                 </viewController>
