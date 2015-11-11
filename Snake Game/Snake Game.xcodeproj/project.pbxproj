@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A553A841BBB4C330062887C /* SnakeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A831BBB4C330062887C /* SnakeLocation.swift */; settings = {ASSET_TAGS = (); }; };
-		8A553A881BBB4E740062887C /* GameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A871BBB4E740062887C /* GameMap.swift */; settings = {ASSET_TAGS = (); }; };
-		8A553A8A1BC55EF50062887C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A891BC55EF50062887C /* Point.swift */; settings = {ASSET_TAGS = (); }; };
-		8A7D47351BE987C300D53B3C /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A7D47341BE987C300D53B3C /* apple.png */; settings = {ASSET_TAGS = (); }; };
-		8AA59D381BCDBE010017786B /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59D371BCDBE010017786B /* Canvas.swift */; settings = {ASSET_TAGS = (); }; };
+		8A553A841BBB4C330062887C /* SnakeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A831BBB4C330062887C /* SnakeLocation.swift */; };
+		8A553A881BBB4E740062887C /* GameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A871BBB4E740062887C /* GameMap.swift */; };
+		8A553A8A1BC55EF50062887C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A891BC55EF50062887C /* Point.swift */; };
+		8A7D47351BE987C300D53B3C /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A7D47341BE987C300D53B3C /* apple.png */; };
+		8AA59D381BCDBE010017786B /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59D371BCDBE010017786B /* Canvas.swift */; };
 		8AF199A61BB4B3C500019A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF199A51BB4B3C500019A83 /* AppDelegate.swift */; };
 		8AF199A81BB4B3C500019A83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF199A71BB4B3C500019A83 /* ViewController.swift */; };
 		8AF199AB1BB4B3C500019A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF199A91BB4B3C500019A83 /* Main.storyboard */; };

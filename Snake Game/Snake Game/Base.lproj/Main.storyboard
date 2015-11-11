@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!-- -->
+        <!-- Classic Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title=" " id="BYZ-38-t0r" customClass="ViewController" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title=" Classic Game" id="BYZ-38-t0r" customClass="ViewController" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -79,6 +79,15 @@
                                             <action selector="PlayAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5P-NN-n3k"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-tG-70Z">
+                                        <rect key="frame" x="133" y="254" width="109" height="54"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Menu"/>
+                                        <connections>
+                                            <segue destination="Urh-DA-66t" kind="show" id="O6t-Yq-5WZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.24270161824766101" green="0.50675585322155836" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,6 +109,9 @@
                                         <animations/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title=" Menu"/>
+                                        <connections>
+                                            <segue destination="Urh-DA-66t" kind="show" id="EAg-oN-Wcv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-G8-5T8">
                                         <rect key="frame" x="133" y="265" width="109" height="35"/>
@@ -159,6 +171,7 @@
                         <outlet property="options" destination="LNu-f2-lp3" id="Q1J-H3-o5U"/>
                         <outlet property="pauseButton1" destination="sAf-DR-j3C" id="Nqh-u2-WoK"/>
                         <outlet property="playAgain" destination="b4P-wM-VnI" id="eI3-BV-Xmj"/>
+                        <outlet property="playAgainMenu" destination="WPo-tG-70Z" id="buK-yf-WCG"/>
                         <outlet property="resume" destination="vbd-G8-5T8" id="PUm-2X-9iG"/>
                         <outlet property="scoreDisplay" destination="iNW-4X-xx3" id="Ai1-Dh-Oj1"/>
                     </connections>
@@ -185,12 +198,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="123.5" y="292.5"/>
+            <point key="canvasLocation" x="173.5" y="-66.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu-->
         <scene sceneID="lS9-5C-wWt">
             <objects>
-                <viewController id="Urh-DA-66t" sceneMemberID="viewController">
+                <viewController title="Main Menu" id="Urh-DA-66t" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UsZ-M8-czN"/>
                         <viewControllerLayoutGuide type="bottom" id="NTe-5X-EPq"/>
@@ -206,11 +219,33 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdo-db-qKW">
-                                <rect key="frame" x="164" y="269" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIg-wI-3h1">
+                                <rect key="frame" x="216" y="280" width="82" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="Arcade ">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GHa-CT-Svv" kind="show" id="xEj-ef-Uh2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuM-1b-r7R">
+                                <rect key="frame" x="146" y="315" width="82" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Options">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fXo-bQ-6Ya" kind="show" id="oev-bD-PMM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdo-db-qKW">
+                                <rect key="frame" x="79" y="280" width="82" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Classic">
                                     <color key="titleColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
@@ -221,8 +256,6 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xdo-db-qKW" firstAttribute="top" secondItem="3a4-Ik-fNl" secondAttribute="bottom" constant="75" id="SEA-wT-2Tb"/>
-                            <constraint firstItem="xdo-db-qKW" firstAttribute="centerX" secondItem="KJi-ap-PNW" secondAttribute="centerX" id="ajF-2Y-Tmd"/>
                             <constraint firstItem="3a4-Ik-fNl" firstAttribute="top" secondItem="UsZ-M8-czN" secondAttribute="bottom" constant="120" id="fFV-6W-iS4"/>
                             <constraint firstItem="3a4-Ik-fNl" firstAttribute="centerX" secondItem="KJi-ap-PNW" secondAttribute="centerX" id="u1Y-Df-i3E"/>
                         </constraints>
@@ -233,5 +266,48 @@
             </objects>
             <point key="canvasLocation" x="-317.5" y="271.5"/>
         </scene>
+        <!--Options Menu-->
+        <scene sceneID="wpd-Ak-4fK">
+            <objects>
+                <viewController title="Options Menu" id="fXo-bQ-6Ya" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L3S-K1-HOV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gs7-ZG-UEr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YWS-lY-sQE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXx-SM-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.5" y="1069.5"/>
+        </scene>
+        <!--Arcade Game-->
+        <scene sceneID="IQa-ns-Oil">
+            <objects>
+                <viewController title="Arcade Game" id="GHa-CT-Svv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adD-ca-ttl"/>
+                        <viewControllerLayoutGuide type="bottom" id="WRK-ya-ACh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pg2-Tm-16L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a1L-eI-kJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.5" y="658.5"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="O6t-Yq-5WZ"/>
+    </inferredMetricsTieBreakers>
 </document>

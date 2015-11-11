@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var menu: UIButton!
     @IBOutlet weak var darkView: UIView!
     @IBOutlet weak var countDownLabel: UILabel!
+    @IBOutlet weak var playAgainMenu: UIButton!
     
     var pause = false
     @IBAction func pauseButton(sender: AnyObject) {
@@ -41,15 +42,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
             })
         }else {
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
-            pause = false
-            
+            print("ahhhhh")
         }
     
     }
     var seconds = 3
     @IBAction func resumeButton(sender: AnyObject) {
-        pause = false
+        
         
         UIView.animateWithDuration(0.5, animations: {
             self.darkView.alpha = 0
@@ -72,6 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.countDownLabel.alpha = 0
             seconds = 3
             countDownLabel.text = "\(seconds)"
+            pause = false
             timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
             
         }
@@ -86,10 +86,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         lostLabel.hidden = true
         playAgain.hidden = true
-        
+        playAgainMenu.hidden = true
         
         lostLabel.center = CGPointMake(lostLabel.center.x - 400, lostLabel.center.y)
         playAgain.center = CGPointMake(playAgain.center.x - 400, playAgain.center.y)
+        playAgainMenu.center = CGPointMake(playAgain.center.x - 400, playAgainMenu.center.y)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
     }
@@ -144,7 +145,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //hide end label
         lostLabel.hidden = true
         playAgain.hidden = true
-        
+        playAgainMenu.hidden = true
         highScoreDisplay.text = "\(snake.highScore)"
         
         self.darkView.alpha = 0
@@ -211,13 +212,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             lostLabel.hidden = false
             playAgain.hidden = false
+            playAgainMenu.hidden = false
             
             self.playAgain.center.x = -200
             self.lostLabel.center.x = -200
+            self.playAgainMenu.center.x = -200
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 
                 self.playAgain.center = CGPointMake(self.screenSize.width / 2, self.playAgain.center.y)
                 self.lostLabel.center = CGPointMake(self.screenSize.width / 2, self.lostLabel.center.y)
+                self.playAgainMenu.center = CGPointMake(self.screenSize.width / 2, self.playAgainMenu.center.y)
             })
             
         // spawn in snake

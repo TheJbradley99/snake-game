@@ -31,8 +31,7 @@ class GameMap: NSObject {
     var game = Array<Array<Int>>()
     
     func makeBoard() {
-        print(xoffset)
-        print(yoffset)
+        
         game = Array<Array<Int>>()
         for var x = 0; x < sizeY; x++ {
             var temp = Array<Int>()
