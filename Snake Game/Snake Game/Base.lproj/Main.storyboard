@@ -364,7 +364,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eGP-PT-gad"/>
                                     <barButtonItem systemItem="pause" id="qFE-1J-1c6">
                                         <connections>
-                                            <action selector="pauseButton:" destination="GHa-CT-Svv" id="ZJH-tV-vvB"/>
+                                            <action selector="pauseButton:" destination="GHa-CT-Svv" id="XHp-YO-UOk"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sWv-R0-RhH"/>
@@ -398,7 +398,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-cG-sGM" userLabel="arcade Canvas">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-cG-sGM" userLabel="arcade Canvas" customClass="CanvasView" customModule="Snake_Game" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="43" width="375" height="623"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgN-6Y-Ors" userLabel="Play again">
@@ -408,8 +408,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Play again "/>
                                         <connections>
-                                            <action selector="PlayAgain:" destination="GHa-CT-Svv" eventType="touchUpInside" id="B7k-15-8hO"/>
-                                            <action selector="PlayAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RXJ-cU-ihX"/>
+                                            <action selector="PlayAgain:" destination="GHa-CT-Svv" eventType="touchUpInside" id="taJ-ph-GmJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-fi-StX">
@@ -417,6 +416,9 @@
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Menu"/>
+                                        <connections>
+                                            <segue destination="Urh-DA-66t" kind="show" id="hgl-o2-Y3E"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You lost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fv5-dV-rCP">
                                         <rect key="frame" x="20" y="154" width="335" height="60"/>
@@ -444,6 +446,9 @@
                                         <animations/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title=" Menu"/>
+                                        <connections>
+                                            <segue destination="Urh-DA-66t" kind="show" id="N4J-gd-9ZP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc9-u2-z2u">
                                         <rect key="frame" x="133" y="265" width="109" height="35"/>
@@ -452,7 +457,7 @@
                                         <state key="normal" title="Resume"/>
                                         <connections>
                                             <action selector="resumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NNa-Ov-9nl"/>
-                                            <action selector="resumeButton:" destination="GHa-CT-Svv" eventType="touchUpInside" id="e4x-Ik-eiM"/>
+                                            <action selector="resumeButton:" destination="GHa-CT-Svv" eventType="touchUpInside" id="l4M-yK-vbt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -473,23 +478,56 @@
                             <constraint firstItem="89k-Kd-z1v" firstAttribute="leading" secondItem="gNH-r4-Av5" secondAttribute="trailing" constant="8" id="Kwa-Rs-gOY"/>
                             <constraint firstItem="eOZ-AX-cqX" firstAttribute="leading" secondItem="s21-oS-Yed" secondAttribute="trailing" constant="3" id="Wmn-j6-t6I"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cdK-XT-BVA" appends="YES" id="WSm-0l-7l9"/>
+                            <outletCollection property="gestureRecognizers" destination="P8s-He-PX0" appends="YES" id="wG3-1R-zjw"/>
+                            <outletCollection property="gestureRecognizers" destination="WuH-MM-VAs" appends="YES" id="GB0-vC-vxr"/>
+                            <outletCollection property="gestureRecognizers" destination="vvr-Ws-4pd" appends="YES" id="tIA-Ju-WOV"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="arcadeCanvas" destination="ND2-cG-sGM" id="a4e-xB-SaQ"/>
-                        <outlet property="darkView" destination="NdD-mu-S8G" id="6AL-1S-zsb"/>
-                        <outlet property="menu" destination="AhP-fi-StX" id="nPI-PN-JBZ"/>
-                        <outlet property="options" destination="fSp-ei-zdP" id="ZVb-dq-yXi"/>
-                        <outlet property="resume" destination="Vc9-u2-z2u" id="eqJ-UN-cJa"/>
+                        <outlet property="arcadeCanvas" destination="ND2-cG-sGM" id="iej-LM-kOh"/>
+                        <outlet property="arcadeHighScoreDisplay" destination="eOZ-AX-cqX" id="y1f-Hq-7Oe"/>
+                        <outlet property="arcadeScoreDisplay" destination="89k-Kd-z1v" id="sBb-Z2-hq2"/>
+                        <outlet property="countDownLabel" destination="Tsc-Pb-5IX" id="78E-xl-Dsb"/>
+                        <outlet property="darkView" destination="NdD-mu-S8G" id="XDN-zy-Gxw"/>
+                        <outlet property="lostLabel" destination="Fv5-dV-rCP" id="zZc-w4-a2u"/>
+                        <outlet property="menu" destination="JFU-i2-EN2" id="IBa-et-Jto"/>
+                        <outlet property="options" destination="fSp-ei-zdP" id="ovv-a4-1lK"/>
+                        <outlet property="pauseButton1" destination="qFE-1J-1c6" id="dPe-la-boH"/>
+                        <outlet property="playAgain" destination="MgN-6Y-Ors" id="dp7-Gg-4c1"/>
+                        <outlet property="playAgainMenu" destination="AhP-fi-StX" id="PHs-W1-WjT"/>
+                        <outlet property="resume" destination="Vc9-u2-z2u" id="0SJ-U5-Uub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1L-eI-kJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="cdK-XT-BVA">
+                    <connections>
+                        <action selector="swipeRight:" destination="GHa-CT-Svv" id="Ae3-BF-HZh"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="P8s-He-PX0">
+                    <connections>
+                        <action selector="swipeLeft:" destination="GHa-CT-Svv" id="aNz-vw-XfV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="WuH-MM-VAs">
+                    <connections>
+                        <action selector="swipeUp:" destination="GHa-CT-Svv" id="MOK-NL-178"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="vvr-Ws-4pd">
+                    <connections>
+                        <action selector="swipeDown:" destination="GHa-CT-Svv" id="xDa-z4-dN6"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="215.5" y="710.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O6t-Yq-5WZ"/>
+        <segue reference="N4J-gd-9ZP"/>
         <segue reference="c58-Fj-Te0"/>
     </inferredMetricsTieBreakers>
 </document>

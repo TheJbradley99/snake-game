@@ -15,10 +15,10 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     var snake: SnakeLocation!
     
     let screenSize: CGRect = UIScreen.mainScreen().bounds
-    @IBOutlet weak var scoreDisplay: UILabel!
+    @IBOutlet weak var arcadeScoreDisplay: UILabel!
     @IBOutlet weak var lostLabel: UILabel!
     @IBOutlet weak var playAgain: UIButton!
-    @IBOutlet weak var highScoreDisplay: UILabel!
+    @IBOutlet weak var arcadeHighScoreDisplay: UILabel!
     @IBOutlet weak var pauseButton1: UIBarButtonItem!
     @IBOutlet weak var resume: UIButton!
     @IBOutlet weak var options: UIButton!
@@ -80,7 +80,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     @IBAction func PlayAgain(sender: AnyObject) {
         snake.direction = "start"
         
-        scoreDisplay.text = "0"
+        arcadeScoreDisplay.text = "0"
         //board.resetApple()
         
         
@@ -118,9 +118,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     // for buttons
     
     
-    //@IBOutlet weak var arcadeCanvas: CanvasView!
-    
-    @IBOutlet weak var arcadeCanvas: UIView!
+    @IBOutlet weak var arcadeCanvas: CanvasView!
     
     
     override func prefersStatusBarHidden() -> Bool {
@@ -138,8 +136,8 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
         
         prefersStatusBarHidden()
-        //canvas.map = board
-        //canvas.snake = snake
+        arcadeCanvas.map = board
+        arcadeCanvas.snake = snake
         
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: nil, repeats: true)
@@ -147,7 +145,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         lostLabel.hidden = true
         playAgain.hidden = true
         playAgainMenu.hidden = true
-        highScoreDisplay.text = "\(snake.highScore)"
+        arcadeHighScoreDisplay.text = "\(snake.highScore)"
         
         self.darkView.alpha = 0
         self.resume.alpha = 0
@@ -208,7 +206,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         if (snake.direction == "stop"){
             snake.reset(board)
             timer.invalidate()
-            highScoreDisplay.text = "\(snake.highScore)"
+            arcadeHighScoreDisplay.text = "\(snake.highScore)"
             
             
             lostLabel.hidden = false
@@ -239,12 +237,12 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 board.resetApple(i)
                 print(snake.score)
                 
-                scoreDisplay.text = "\(snake.score)"
+                arcadeScoreDisplay.text = "\(snake.score)"
             }
         }
         
         //update board
-        //canvas.setNeedsDisplay()
+        arcadeCanvas.setNeedsDisplay()
         
     }
     
