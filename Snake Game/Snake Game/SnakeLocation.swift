@@ -13,19 +13,30 @@ class SnakeLocation: NSObject {
     var size = 0
     var apples = 10
     var score = 0
-    
-    
+    var arcadeScore = 0
+    var arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
+
     var highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
     var direction: NSString = "start"
     
     func reset(board: GameMap) {
+        
+        
         NSUserDefaults.standardUserDefaults().integerForKey("highScore")
+        NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
         if score > NSUserDefaults.standardUserDefaults().integerForKey("highScore") {
             NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "highScore")
             NSUserDefaults.standardUserDefaults().synchronize()
             
         }
+        if arcadeScore > NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore") {
+            NSUserDefaults.standardUserDefaults().setInteger(arcadeScore, forKey: "arcadeHighScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
         highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
+        
+        
         score = 0
         size = 0
         tail = [Point(X:board.sizeX / 2, Y:board.sizeY / 2)]
@@ -44,6 +55,10 @@ class SnakeLocation: NSObject {
         score += 1
         size += 1
         
+    }
+    func arcadeEat() {
+        size += 1
+        arcadeScore += 1
     }
     
 }
