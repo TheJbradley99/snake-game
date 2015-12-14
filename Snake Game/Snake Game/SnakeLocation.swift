@@ -9,9 +9,10 @@ import Foundation
 
 
 class SnakeLocation: NSObject {
+    
     var tail = [Point(X: 0, Y: 0)]
     var size = 0
-    var apples = 10
+    var apples = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
     var score = 0
     var arcadeScore = 0
     var arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")

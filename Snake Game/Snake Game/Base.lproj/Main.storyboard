@@ -308,7 +308,7 @@
         <!--Options Menu-->
         <scene sceneID="wpd-Ak-4fK">
             <objects>
-                <viewController title="Options Menu" id="fXo-bQ-6Ya" sceneMemberID="viewController">
+                <viewController title="Options Menu" id="fXo-bQ-6Ya" customClass="ViewController3" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3S-K1-HOV"/>
                         <viewControllerLayoutGuide type="bottom" id="Gs7-ZG-UEr"/>
@@ -334,12 +334,27 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
                                 <rect key="frame" x="73" y="103" width="229" height="31"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="fXo-bQ-6Ya" eventType="valueChanged" id="V4j-XP-wmP"/>
+                                </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
+                                <rect key="frame" x="164" y="235" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Urh-DA-66t" kind="show" id="LK3-ci-j5X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="appleNumDisplay" destination="Teg-hu-reU" id="xOG-zO-g7b"/>
+                        <outlet property="appleSliderNum" destination="vuE-MH-z9h" id="L79-bf-jea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXx-SM-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,6 +455,9 @@
                                         <animations/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Options"/>
+                                        <connections>
+                                            <segue destination="fXo-bQ-6Ya" kind="show" id="RCf-sj-spX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-i2-EN2">
                                         <rect key="frame" x="133" y="369" width="109" height="35"/>
@@ -527,7 +545,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N4J-gd-9ZP"/>
-        <segue reference="c58-Fj-Te0"/>
+        <segue reference="RCf-sj-spX"/>
+        <segue reference="hgl-o2-Y3E"/>
     </inferredMetricsTieBreakers>
 </document>

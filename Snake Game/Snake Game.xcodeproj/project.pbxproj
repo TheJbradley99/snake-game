@@ -13,6 +13,7 @@
 		8A553A8A1BC55EF50062887C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A891BC55EF50062887C /* Point.swift */; };
 		8A7D47351BE987C300D53B3C /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A7D47341BE987C300D53B3C /* apple.png */; };
 		8A8647311C0C97D40093A8A4 /* AcradeCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8647301C0C97D40093A8A4 /* AcradeCanvas.swift */; };
+		8A8647331C19D34D0093A8A4 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8647321C19D34D0093A8A4 /* ViewController3.swift */; };
 		8AA59D381BCDBE010017786B /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59D371BCDBE010017786B /* Canvas.swift */; };
 		8AAD92D01BFE16130017A61B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD92CF1BFE16130017A61B /* ViewController2.swift */; };
 		8AF199A61BB4B3C500019A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF199A51BB4B3C500019A83 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		8A553A891BC55EF50062887C /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		8A7D47341BE987C300D53B3C /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple.png; path = ../../apple.png; sourceTree = "<group>"; };
 		8A8647301C0C97D40093A8A4 /* AcradeCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcradeCanvas.swift; sourceTree = "<group>"; };
+		8A8647321C19D34D0093A8A4 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		8AA59D371BCDBE010017786B /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		8AAD92CF1BFE16130017A61B /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		8AF199A21BB4B3C500019A83 /* Snake Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snake Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,7 @@
 				8AF199A51BB4B3C500019A83 /* AppDelegate.swift */,
 				8AF199A71BB4B3C500019A83 /* ViewController.swift */,
 				8AAD92CF1BFE16130017A61B /* ViewController2.swift */,
+				8A8647321C19D34D0093A8A4 /* ViewController3.swift */,
 				8A553A831BBB4C330062887C /* SnakeLocation.swift */,
 				8A4FB52D1C035B35005B7843 /* Options.swift */,
 				8AA59D371BCDBE010017786B /* Canvas.swift */,
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A8647331C19D34D0093A8A4 /* ViewController3.swift in Sources */,
 				8A8647311C0C97D40093A8A4 /* AcradeCanvas.swift in Sources */,
 				8AAD92D01BFE16130017A61B /* ViewController2.swift in Sources */,
 				8A553A881BBB4E740062887C /* GameMap.swift in Sources */,

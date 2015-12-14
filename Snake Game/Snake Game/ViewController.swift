@@ -240,7 +240,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 snake.tail.append(Point(X: apple.x, Y: apple.y))
                 snake.eat()
                 board.resetApple(i)
-                print(snake.score)
+                
                 
                 scoreDisplay.text = "\(snake.score)"
             }
