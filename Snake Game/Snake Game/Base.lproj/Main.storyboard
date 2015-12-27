@@ -297,12 +297,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
+
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
                                 <rect key="frame" x="73" y="103" width="229" height="31"/>
                             </slider>
-=======
->>>>>>> 2bb33d557e27b5e3e985ef3708271e13ceacf879
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-hu-reU">
                                 <rect key="frame" x="166" y="158" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -513,12 +511,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
+
         <segue reference="N4J-gd-9ZP"/>
         <segue reference="oev-bD-PMM"/>
-=======
+
         <segue reference="RCf-sj-spX"/>
         <segue reference="hgl-o2-Y3E"/>
->>>>>>> 2bb33d557e27b5e3e985ef3708271e13ceacf879
+
     </inferredMetricsTieBreakers>
 </document>
