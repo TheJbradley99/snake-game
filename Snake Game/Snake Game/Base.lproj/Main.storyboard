@@ -288,7 +288,7 @@
         <!--Options Menu-->
         <scene sceneID="wpd-Ak-4fK">
             <objects>
-                <viewController title="Options Menu" id="fXo-bQ-6Ya" customClass="ViewController" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Options Menu" id="fXo-bQ-6Ya" customClass="ViewController3" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3S-K1-HOV"/>
                         <viewControllerLayoutGuide type="bottom" id="Gs7-ZG-UEr"/>
@@ -297,9 +297,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
                                 <rect key="frame" x="73" y="103" width="229" height="31"/>
                             </slider>
+=======
+>>>>>>> 2bb33d557e27b5e3e985ef3708271e13ceacf879
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-hu-reU">
                                 <rect key="frame" x="166" y="158" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -312,10 +315,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
+                                <rect key="frame" x="73" y="103" width="229" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="fXo-bQ-6Ya" eventType="valueChanged" id="V4j-XP-wmP"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
+                                <rect key="frame" x="164" y="235" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Urh-DA-66t" kind="show" id="LK3-ci-j5X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="appleNumDisplay" destination="Teg-hu-reU" id="xOG-zO-g7b"/>
+                        <outlet property="appleSliderNum" destination="vuE-MH-z9h" id="L79-bf-jea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXx-SM-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,13 +367,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sWv-R0-RhH"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89k-Kd-z1v" userLabel="arcade Score Display">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89k-Kd-z1v" userLabel="arcade High Score Display">
                                 <rect key="frame" x="113" y="12" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-AX-cqX" userLabel="acrade High Score Display">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-AX-cqX" userLabel="acrade Score Display">
                                 <rect key="frame" x="276" y="10" width="46" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -406,6 +428,9 @@
                                         <rect key="frame" x="133" y="317" width="109" height="35"/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Options"/>
+                                        <connections>
+                                            <segue destination="fXo-bQ-6Ya" kind="show" id="RCf-sj-spX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-i2-EN2">
                                         <rect key="frame" x="133" y="369" width="109" height="35"/>
@@ -449,8 +474,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="arcadeCanvas" destination="ND2-cG-sGM" id="iej-LM-kOh"/>
-                        <outlet property="arcadeHighScoreDisplay" destination="eOZ-AX-cqX" id="y1f-Hq-7Oe"/>
-                        <outlet property="arcadeScoreDisplay" destination="89k-Kd-z1v" id="sBb-Z2-hq2"/>
+                        <outlet property="arcadeHighScoreDisplay" destination="89k-Kd-z1v" id="ea2-27-MYL"/>
+                        <outlet property="arcadeScoreDisplay" destination="eOZ-AX-cqX" id="GTy-nX-CGx"/>
                         <outlet property="countDownLabel" destination="Tsc-Pb-5IX" id="78E-xl-Dsb"/>
                         <outlet property="darkView" destination="NdD-mu-S8G" id="XDN-zy-Gxw"/>
                         <outlet property="lostLabel" destination="Fv5-dV-rCP" id="zZc-w4-a2u"/>
@@ -488,7 +513,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="N4J-gd-9ZP"/>
         <segue reference="oev-bD-PMM"/>
+=======
+        <segue reference="RCf-sj-spX"/>
+        <segue reference="hgl-o2-Y3E"/>
+>>>>>>> 2bb33d557e27b5e3e985ef3708271e13ceacf879
     </inferredMetricsTieBreakers>
 </document>
