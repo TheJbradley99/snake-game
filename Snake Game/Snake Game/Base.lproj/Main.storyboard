@@ -288,7 +288,7 @@
         <!--Options Menu-->
         <scene sceneID="wpd-Ak-4fK">
             <objects>
-                <viewController title="Options Menu" id="fXo-bQ-6Ya" customClass="ViewController3" customModule="Snake_Game" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Options Menu" id="fXo-bQ-6Ya" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3S-K1-HOV"/>
                         <viewControllerLayoutGuide type="bottom" id="Gs7-ZG-UEr"/>
@@ -326,10 +326,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="appleNumDisplay" destination="Teg-hu-reU" id="xOG-zO-g7b"/>
-                        <outlet property="appleSliderNum" destination="vuE-MH-z9h" id="L79-bf-jea"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXx-SM-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -420,9 +416,6 @@
                                         <rect key="frame" x="133" y="317" width="109" height="35"/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Options"/>
-                                        <connections>
-                                            <segue destination="fXo-bQ-6Ya" kind="show" id="RCf-sj-spX"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-i2-EN2">
                                         <rect key="frame" x="133" y="369" width="109" height="35"/>
@@ -505,7 +498,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RCf-sj-spX"/>
-        <segue reference="hgl-o2-Y3E"/>
+        <segue reference="N4J-gd-9ZP"/>
+        <segue reference="c58-Fj-Te0"/>
     </inferredMetricsTieBreakers>
 </document>
