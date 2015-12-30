@@ -145,7 +145,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         lostLabel.hidden = true
         playAgain.hidden = true
         playAgainMenu.hidden = true
-        arcadeHighScoreDisplay.text = "\(snake.highScore)"
+        arcadeHighScoreDisplay.text = "\(snake.arcadeHighScore)"
         
         self.darkView.alpha = 0
         self.resume.alpha = 0
@@ -206,7 +206,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         if (snake.direction == "stop"){
             snake.reset(board)
             timer.invalidate()
-            arcadeHighScoreDisplay.text = "\(snake.highScore)"
+            arcadeHighScoreDisplay.text = "\(snake.arcadeHighScore)"
             
             
             lostLabel.hidden = false
@@ -233,11 +233,11 @@ class ViewController2: UIViewController, UITextFieldDelegate {
             let apple = board.apples[i]
             if (head.x == apple.x && head.y == apple.y) {
                 snake.tail.append(Point(X: apple.x, Y: apple.y))
-                snake.eat()
+                snake.arcadeEat()
                 board.resetApple(i)
-                print(snake.score)
                 
-                arcadeScoreDisplay.text = "\(snake.score)"
+                
+                arcadeScoreDisplay.text = "\(snake.arcadeScore)"
             }
         }
         
