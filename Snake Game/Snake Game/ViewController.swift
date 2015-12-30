@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playAgainMenu: UIButton!
     
     var pause = false
-    // to pause the game
     @IBAction func pauseButton(sender: AnyObject) {
         if !pause {
             timer.invalidate()
@@ -48,7 +47,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     }
     var seconds = 3
-    // for when people want to continue to play your game... WHAT!!
     @IBAction func resumeButton(sender: AnyObject) {
         
         
@@ -62,7 +60,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "subtractTime", userInfo: nil, repeats: true)
     }
-    // for the count down
+    
     func subtractTime() {
         
         seconds--
@@ -117,10 +115,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             snake.direction = "down"
         }
     }
+    // for buttons
     
     
-    
-    // connect the canvas so world can be drawn
     @IBOutlet weak var canvas: CanvasView!
     
    
@@ -140,7 +137,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         prefersStatusBarHidden()
-        
         canvas.map = board
         canvas.snake = snake
         
@@ -161,7 +157,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
    
     }
-    // game loop thing that make sure every still be working
+    
     func update() {
         if snake.direction == "start" {
             return
@@ -240,7 +236,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 snake.tail.append(Point(X: apple.x, Y: apple.y))
                 snake.eat()
                 board.resetApple(i)
-                
+                print(snake.score)
                 
                 scoreDisplay.text = "\(snake.score)"
             }
