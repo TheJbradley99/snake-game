@@ -297,33 +297,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-hu-reU">
-                                <rect key="frame" x="166" y="158" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-hu-reU">
+                                <rect key="frame" x="186" y="158" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How Many Apples?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL9-He-LSk">
-                                <rect key="frame" x="113" y="62" width="149" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How Many Apples?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL9-He-LSk">
+                                <rect key="frame" x="133" y="62" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
-                                <rect key="frame" x="164" y="235" width="46" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
+                                <rect key="frame" x="93" y="103" width="229" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="fXo-bQ-6Ya" eventType="valueChanged" id="V4j-XP-wmP"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
+                                <rect key="frame" x="184" y="235" width="46" height="30"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
                                     <segue destination="Urh-DA-66t" kind="show" id="LK3-ci-j5X"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
-                                <rect key="frame" x="73" y="103" width="229" height="31"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="fXo-bQ-6Ya" eventType="valueChanged" id="V4j-XP-wmP"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vuE-MH-z9h" firstAttribute="top" secondItem="sL9-He-LSk" secondAttribute="bottom" constant="20" id="BHN-v3-WNt"/>
+                            <constraint firstItem="vuE-MH-z9h" firstAttribute="centerX" secondItem="YWS-lY-sQE" secondAttribute="centerX" id="Bch-FV-LHf"/>
+                            <constraint firstItem="Ibf-eH-Z4B" firstAttribute="top" secondItem="Teg-hu-reU" secondAttribute="bottom" constant="56" id="J2Z-ZD-urO"/>
+                            <constraint firstItem="sL9-He-LSk" firstAttribute="centerX" secondItem="YWS-lY-sQE" secondAttribute="centerX" id="OGU-Ao-nGm"/>
+                            <constraint firstItem="Ibf-eH-Z4B" firstAttribute="centerX" secondItem="YWS-lY-sQE" secondAttribute="centerX" id="UDG-hY-oVE"/>
+                            <constraint firstItem="Teg-hu-reU" firstAttribute="top" secondItem="vuE-MH-z9h" secondAttribute="bottom" constant="25" id="agd-UB-6DC"/>
+                            <constraint firstItem="Teg-hu-reU" firstAttribute="centerX" secondItem="YWS-lY-sQE" secondAttribute="centerX" id="meY-fe-KRb"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -333,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXx-SM-UxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257.5" y="1095.5"/>
+            <point key="canvasLocation" x="-287" y="1108"/>
         </scene>
         <!--Arcade Game-->
         <scene sceneID="IQa-ns-Oil">
@@ -506,6 +515,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="LK3-ci-j5X"/>
-        <segue reference="RCf-sj-spX"/>
+        <segue reference="oev-bD-PMM"/>
     </inferredMetricsTieBreakers>
 </document>

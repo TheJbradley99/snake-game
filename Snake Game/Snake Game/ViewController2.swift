@@ -250,7 +250,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 snake.tail.append(Point(X: apple.x, Y: apple.y))
                 snake.badEat()
                 board.resetBadApple(i)
-                
+                arcadeScoreDisplay.text = "\(snake.arcadeScore)"
             }
         }
         //update board
