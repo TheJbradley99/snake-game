@@ -16,10 +16,9 @@ class SnakeLocation: NSObject {
     var score = 0
     var arcadeScore = 0
     var arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
-
     var highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
     var direction: NSString = "start"
-    
+    var badApples = 10
     func reset(board: GameMap) {
         
         
@@ -49,6 +48,43 @@ class SnakeLocation: NSObject {
             let appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
             board.apples.append(Point(X:appleX, Y:appleY))
         }
+       
+    }
+    func reset2(board: ArcadeGameMap) {
+        
+        
+        NSUserDefaults.standardUserDefaults().integerForKey("highScore")
+        NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
+        if score > NSUserDefaults.standardUserDefaults().integerForKey("highScore") {
+            NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "highScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        if arcadeScore > NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore") {
+            NSUserDefaults.standardUserDefaults().setInteger(arcadeScore, forKey: "arcadeHighScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
+        highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
+        
+        
+        score = 0
+        size = 0
+        tail = [Point(X:board.sizeX / 2, Y:board.sizeY / 2)]
+        arcadeScore = 0
+        // Reset apples
+        board.apples.removeAll()
+        for (var i = 0; i < apples; i++) {
+            let appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+            let appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+            board.apples.append(Point(X:appleX, Y:appleY))
+        }
+        board.badApples.removeAll()
+        for (var i = 0; i < badApples; i++) {
+            let appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+            let appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+            board.badApples.append(Point(X:appleX, Y:appleY))
+        }
         
     }
     
@@ -60,6 +96,13 @@ class SnakeLocation: NSObject {
     func arcadeEat() {
         size += 1
         arcadeScore += 1
+    }
+    func badEat(){
+        size -= 1
+        arcadeScore -= 1
+        if size < 0 {
+            direction = "stop"
+        }
     }
     
 }

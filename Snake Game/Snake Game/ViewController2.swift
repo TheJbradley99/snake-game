@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewController2.swift
 //  Snake Game
 //
 //  Copyright © 2015 Josh Bradley. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 class ViewController2: UIViewController, UITextFieldDelegate {
     
     
-    var board: GameMap!
+    var board: ArcadeGameMap!
     var timer: NSTimer!
     var snake: SnakeLocation!
     
@@ -118,7 +118,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     // for buttons
     
     
-    @IBOutlet weak var arcadeCanvas: CanvasView!
+    @IBOutlet weak var arcadeCanvas: AcradeCanvasView!
     
     
     override func prefersStatusBarHidden() -> Bool {
@@ -128,11 +128,11 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
-        board = GameMap()
-        board.makeBoard()
+        board = ArcadeGameMap()
+        board.arcadeMakeBoard()
         
         snake = SnakeLocation()
-        snake.reset(board)
+        snake.reset2(board)
         
         
         prefersStatusBarHidden()
@@ -189,8 +189,12 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         // Add the new head to the FRONT of the tail
         snake.tail = [newhead] + snake.tail
         // CUT the tail by the size
-        if snake.tail.count > snake.size {
-            snake.tail = Array(snake.tail[0...snake.size])
+        if snake.size >= 0 {
+            if snake.tail.count > snake.size {
+                snake.tail = Array(snake.tail[0...snake.size])
+            }
+        }else {
+            snake.direction = "stop"
         }
         
         // Check if we crashed into ourself
@@ -204,7 +208,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         // stop game and display end label
         head = newhead
         if (snake.direction == "stop"){
-            snake.reset(board)
+            snake.reset2(board)
             timer.invalidate()
             arcadeHighScoreDisplay.text = "\(snake.arcadeHighScore)"
             
@@ -240,7 +244,15 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 arcadeScoreDisplay.text = "\(snake.arcadeScore)"
             }
         }
-        
+        for (var i = 0; i < board.badApples.count; i++) {
+            let apple = board.badApples[i]
+            if (head.x == apple.x && head.y == apple.y) {
+                snake.tail.append(Point(X: apple.x, Y: apple.y))
+                snake.badEat()
+                board.resetBadApple(i)
+                
+            }
+        }
         //update board
         arcadeCanvas.setNeedsDisplay()
         

@@ -309,19 +309,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
+                                <rect key="frame" x="164" y="235" width="46" height="30"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="Urh-DA-66t" kind="show" id="LK3-ci-j5X"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-MH-z9h">
                                 <rect key="frame" x="73" y="103" width="229" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="fXo-bQ-6Ya" eventType="valueChanged" id="V4j-XP-wmP"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-eH-Z4B">
-                                <rect key="frame" x="164" y="235" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Urh-DA-66t" kind="show" id="LK3-ci-j5X"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -505,7 +505,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="LK3-ci-j5X"/>
         <segue reference="RCf-sj-spX"/>
-        <segue reference="hgl-o2-Y3E"/>
     </inferredMetricsTieBreakers>
 </document>

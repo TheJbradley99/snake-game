@@ -29,10 +29,13 @@ class CanvasView: UIView {
                     CGContextAddLineToPoint(context, CGFloat(((x+1) * tileW) + map.xoffset), CGFloat((y+1) * tileH + map.yoffset))
                     CGContextAddLineToPoint(context, CGFloat((x * tileW) + map.xoffset), CGFloat((y+1) * tileH + map.yoffset))
                     CGContextClosePath(context)
+                    
                     CGContextSetRGBStrokeColor(context, 0.7, 0.7, 0.7, 1.0)
                     CGContextSetLineWidth(context, 1.0)
                     CGContextStrokePath(context)
+                    
                     CGContextSetRGBFillColor(context, 0.9, 0.9, 0.9, 1.0)
+                    
                 } else if (tile == 1) {
                     CGContextSetRGBFillColor(context, 62/255, 129/255, 1.0, 1.0)
                 }

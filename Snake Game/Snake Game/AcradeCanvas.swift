@@ -11,16 +11,16 @@ import Foundation
 import UIKit
 
 class AcradeCanvasView: UIView {
-    var map: GameMap!
+    var map: ArcadeGameMap!
     var snake: SnakeLocation!
     
     override func drawRect(rect: CGRect) {
         // Set up for later
         let context = UIGraphicsGetCurrentContext()
         
-        for var y = 0; y < map.game.count; y++ {
-            for var x = 0; x < map.game[0].count; x++ {
-                let tile = map.game[y][x]
+        for var y = 0; y < map.arcadeGame.count; y++ {
+            for var x = 0; x < map.arcadeGame[0].count; x++ {
+                let tile = map.arcadeGame[y][x]
                 
                 // Draw the inside
                 
@@ -31,7 +31,7 @@ class AcradeCanvasView: UIView {
                     CGContextAddLineToPoint(context, CGFloat(((x+1) * tileW) + map.xoffset), CGFloat((y+1) * tileH + map.yoffset))
                     CGContextAddLineToPoint(context, CGFloat((x * tileW) + map.xoffset), CGFloat((y+1) * tileH + map.yoffset))
                     CGContextClosePath(context)
-                    // makes the lines
+                    // makes the lines for the grid (well colors them at least)
                     //CGContextSetRGBStrokeColor(context, 0.7, 0.7, 0.7, 1.0)
                     //CGContextSetLineWidth(context, 1.0)
                     //CGContextStrokePath(context)
@@ -62,6 +62,13 @@ class AcradeCanvasView: UIView {
             CGContextSetRGBFillColor(context, 0.9, 0.0, 0.0, 1.0)
             CGContextFillRect(context, CGRectMake(
                 CGFloat(apple.x * tileW + map.xoffset), CGFloat(apple.y * tileH + map.yoffset),
+                CGFloat(tileW), CGFloat(tileH))
+            )
+        }
+        for var badApple in map.badApples {
+            CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0)
+            CGContextFillRect(context, CGRectMake(
+                CGFloat(badApple.x * tileW + map.xoffset), CGFloat(badApple.y * tileH + map.yoffset),
                 CGFloat(tileW), CGFloat(tileH))
             )
         }
