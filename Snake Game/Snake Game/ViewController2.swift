@@ -244,6 +244,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 arcadeScoreDisplay.text = "\(snake.arcadeScore)"
             }
         }
+        // oo that was'nt an apple
         for (var i = 0; i < board.badApples.count; i++) {
             let apple = board.badApples[i]
             if (head.x == apple.x && head.y == apple.y) {
@@ -251,6 +252,13 @@ class ViewController2: UIViewController, UITextFieldDelegate {
                 snake.badEat()
                 board.resetBadApple(i)
                 arcadeScoreDisplay.text = "\(snake.arcadeScore)"
+            }
+        }
+        // wow that really was'nt an apple
+        for (var i = 0; i < board.inWall.count; i++) {
+            let apple = board.inWall[i]
+            if (head.x == apple.x && head.y == apple.y) {
+                snake.direction = "stop"
             }
         }
         //update board

@@ -14,6 +14,7 @@ var tileW = 16
 var tileH = 16
 
 class GameMap: NSObject {
+    var snake: SnakeLocation!
     var apples: Array<Point> = []
     
     var sizeY = Int(ViewController().screenSize.height - 44) / tileW

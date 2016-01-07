@@ -65,6 +65,7 @@ class AcradeCanvasView: UIView {
                 CGFloat(tileW), CGFloat(tileH))
             )
         }
+        //draw the bad apples
         for var badApple in map.badApples {
             CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0)
             CGContextFillRect(context, CGRectMake(
@@ -72,6 +73,16 @@ class AcradeCanvasView: UIView {
                 CGFloat(tileW), CGFloat(tileH))
             )
         }
+        
+        //in game room walls
+        for var inWall in map.inWall {
+            CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0)
+            CGContextFillRect(context, CGRectMake(
+                CGFloat(inWall.x * tileW + map.xoffset), CGFloat(inWall.y * tileH + map.yoffset),
+                CGFloat(tileW), CGFloat(tileH))
+            )
+        }
+        // my brefe pic fase 
         func drawRect(rect: CGRect)
         {
             let myImage = UIImage(named: "apple.png")

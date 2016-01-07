@@ -10,8 +10,11 @@ import UIKit
 
 
 class ArcadeGameMap: NSObject {
+    var snake: SnakeLocation!
+    
     var apples: Array<Point> = []
     var badApples: Array<Point> = []
+    var inWall: Array<Point> = []
     
     var sizeY = Int(ViewController().screenSize.height - 44) / tileW
     var sizeX = Int(ViewController().screenSize.width) / tileH
@@ -28,6 +31,11 @@ class ArcadeGameMap: NSObject {
         let appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
         let appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
         badApples[index] = Point(X: appleX, Y: appleY)
+    }
+    func resetInWall(index: Int){
+        let appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+        let appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+        inWall[index] = Point(X: appleX, Y: appleY)
     }
     
     var arcadeGame = Array<Array<Int>>()
