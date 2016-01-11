@@ -24,8 +24,23 @@ class GameMap: NSObject {
     var xoffset = Int(((Double(ViewController().screenSize.width)) % tileH1) / 2.0)
     
     func resetApple(index: Int){
-        let appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
-        let appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+        let test = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
+        var tester = 0
+        var appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+        var appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+        while tester <= test {
+            for var i = 1; i < apples.count; i++ {
+                let apple = apples[i]
+                if appleX == apple.x && appleY == apple.y {
+                    appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+                    appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+                    print("overlap")
+                }
+                else{
+                   tester += 1
+                }
+            }
+        }
         apples[index] = Point(X: appleX, Y: appleY)
     }
     

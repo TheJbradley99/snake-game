@@ -30,7 +30,6 @@ class SnakeLocation: NSObject {
         if score > NSUserDefaults.standardUserDefaults().integerForKey("highScore") {
             NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "highScore")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
         if arcadeScore > NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore") {
             NSUserDefaults.standardUserDefaults().setInteger(arcadeScore, forKey: "arcadeHighScore")
@@ -43,16 +42,36 @@ class SnakeLocation: NSObject {
         score = 0
         size = 0
         tail = [Point(X:board.sizeX / 2, Y:board.sizeY / 2)]
-        
-        // Reset apples
+        // Reset apples (really first spawning of apples)
         board.apples.removeAll()
+        var appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+        var appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
         for (var i = 0; i < apples; i++) {
-            let appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
-            let appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+            appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+            appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
             board.apples.append(Point(X:appleX, Y:appleY))
         }
         
-    }
+        // stuff for overlapping apples
+        
+        for var j = 1; j < board.apples.count; j++ {
+            for var i = 1; i < board.apples.count; i++ {
+                let apple = board.apples[i]
+                if appleX == apple.x && appleY == apple.y {
+                    appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+                    appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+                    board.apples[j] = Point(X: appleX, Y: appleY)
+                    print("overlap")
+                    
+                }
+                
+            }
+        }
+            
+        
+        
+ 
+   }
     // rest the borad for arcade
     func reset2(board: ArcadeGameMap) {
         
