@@ -29,6 +29,7 @@ class GameMap: NSObject {
         var appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
         var appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
         while tester <= test {
+            print("hi")
             for var i = 1; i < apples.count; i++ {
                 let apple = apples[i]
                 if appleX == apple.x && appleY == apple.y {

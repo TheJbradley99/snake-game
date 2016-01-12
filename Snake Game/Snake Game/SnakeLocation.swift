@@ -10,6 +10,7 @@ import Foundation
 
 class SnakeLocation: NSObject {
     // lots of declrations of things
+    var apple: Apple!
     var tail = [Point(X: 0, Y: 0)]
     var size = 0
     var apples = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
@@ -42,32 +43,35 @@ class SnakeLocation: NSObject {
         score = 0
         size = 0
         tail = [Point(X:board.sizeX / 2, Y:board.sizeY / 2)]
+        
         // Reset apples (really first spawning of apples)
-        board.apples.removeAll()
-        var appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
-        var appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
-        for (var i = 0; i < apples; i++) {
-            appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
-            appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
-            board.apples.append(Point(X:appleX, Y:appleY))
-        }
+//        board.apples.removeAll()
+//        var appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+//        var appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+//        for (var i = 0; i < apples; i++) {
+//            appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+//            appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+//            board.apples.append(Point(X:appleX, Y:appleY))
+//        }
+//        
+//        // stuff for overlapping apples
+//        
+//        for var j = 1; j < board.apples.count; j++ {
+//            
+//            for var i = 1; i < board.apples.count; i++ {
+//                let apple = board.apples[i]
+//                
+//                if appleX == apple.x && appleY == apple.y {
+//                    appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
+//                    appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
+//                    board.apples[j] = Point(X: appleX, Y: appleY)
+//                    
+//                    
+//                }
+//                
+//            }
+//        }
         
-        // stuff for overlapping apples
-        
-        for var j = 1; j < board.apples.count; j++ {
-            for var i = 1; i < board.apples.count; i++ {
-                let apple = board.apples[i]
-                if appleX == apple.x && appleY == apple.y {
-                    appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
-                    appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
-                    board.apples[j] = Point(X: appleX, Y: appleY)
-                    print("overlap")
-                    
-                }
-                
-            }
-        }
-            
         
         
  
