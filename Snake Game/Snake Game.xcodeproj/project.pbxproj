@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		03070A001C359D56008E575D /* ArcadeGameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030709FF1C359D56008E575D /* ArcadeGameMap.swift */; };
-		035D5C131C45BF7B00B3C936 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D5C121C45BF7B00B3C936 /* Apple.swift */; };
 		8A553A841BBB4C330062887C /* SnakeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A831BBB4C330062887C /* SnakeLocation.swift */; };
 		8A553A881BBB4E740062887C /* GameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A871BBB4E740062887C /* GameMap.swift */; };
 		8A553A8A1BC55EF50062887C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A553A891BC55EF50062887C /* Point.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		030709FF1C359D56008E575D /* ArcadeGameMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeGameMap.swift; sourceTree = "<group>"; };
-		035D5C121C45BF7B00B3C936 /* Apple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 		8A553A831BBB4C330062887C /* SnakeLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeLocation.swift; sourceTree = "<group>"; };
 		8A553A871BBB4E740062887C /* GameMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMap.swift; sourceTree = "<group>"; };
 		8A553A891BC55EF50062887C /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				8A8647301C0C97D40093A8A4 /* AcradeCanvas.swift */,
 				8A553A891BC55EF50062887C /* Point.swift */,
 				030709FF1C359D56008E575D /* ArcadeGameMap.swift */,
-				035D5C121C45BF7B00B3C936 /* Apple.swift */,
 				8A553A871BBB4E740062887C /* GameMap.swift */,
 				8AF199A91BB4B3C500019A83 /* Main.storyboard */,
 				8AF199AC1BB4B3C500019A83 /* Assets.xcassets */,
@@ -295,7 +292,6 @@
 				8A553A8A1BC55EF50062887C /* Point.swift in Sources */,
 				8AF199A81BB4B3C500019A83 /* ViewController.swift in Sources */,
 				8A553A841BBB4C330062887C /* SnakeLocation.swift in Sources */,
-				035D5C131C45BF7B00B3C936 /* Apple.swift in Sources */,
 				8AF199A61BB4B3C500019A83 /* AppDelegate.swift in Sources */,
 				8AA59D381BCDBE010017786B /* Canvas.swift in Sources */,
 			);
