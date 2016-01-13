@@ -23,6 +23,7 @@ class GameMap: NSObject {
     var yoffset = Int(((Double(ViewController().screenSize.height) - 44.0) % tileW1) / 2.0)
     var xoffset = Int(((Double(ViewController().screenSize.width)) % tileH1) / 2.0)
     
+
 //    func resetApple(index: Int){
 //        let test = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
 //        var tester = 0
@@ -44,6 +45,7 @@ class GameMap: NSObject {
 //        }
 //        apples[index] = Point(X: appleX, Y: appleY)
 //    }
+
     
     var game = Array<Array<Int>>()
     

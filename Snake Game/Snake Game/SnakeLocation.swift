@@ -34,6 +34,7 @@ class SnakeLocation: NSObject {
         if score > NSUserDefaults.standardUserDefaults().integerForKey("highScore") {
             NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "highScore")
             NSUserDefaults.standardUserDefaults().synchronize()
+            
         }
         if arcadeScore > NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore") {
             NSUserDefaults.standardUserDefaults().setInteger(arcadeScore, forKey: "arcadeHighScore")
@@ -46,6 +47,7 @@ class SnakeLocation: NSObject {
         score = 0
         size = 0
         tail = [Point(X:board.sizeX / 2, Y:board.sizeY / 2)]
+
         print("hi")
         spawn.resetAllApples(board)
         
@@ -83,6 +85,7 @@ class SnakeLocation: NSObject {
         
  
    }
+
     // rest the borad for arcade
     func reset2(board: ArcadeGameMap) {
         
