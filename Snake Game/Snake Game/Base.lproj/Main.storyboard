@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-V9-ELy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eGP-PT-gad"/>
                                     <barButtonItem systemItem="pause" id="qFE-1J-1c6">
@@ -426,23 +426,15 @@
                                 <rect key="frame" x="0.0" y="-1" width="414" height="737"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSp-ei-zdP">
-                                        <rect key="frame" x="133" y="317" width="109" height="35"/>
+                                        <rect key="frame" x="153" y="316" width="109" height="35"/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Options"/>
                                         <connections>
                                             <segue destination="fXo-bQ-6Ya" kind="show" id="RCf-sj-spX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-i2-EN2">
-                                        <rect key="frame" x="133" y="369" width="109" height="35"/>
-                                        <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title=" Menu"/>
-                                        <connections>
-                                            <segue destination="Urh-DA-66t" kind="show" id="N4J-gd-9ZP"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc9-u2-z2u">
-                                        <rect key="frame" x="133" y="265" width="109" height="35"/>
+                                        <rect key="frame" x="153" y="265" width="109" height="35"/>
                                         <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Resume"/>
                                         <connections>
@@ -450,11 +442,19 @@
                                             <action selector="resumeButton:" destination="GHa-CT-Svv" eventType="touchUpInside" id="l4M-yK-vbt"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-i2-EN2">
+                                        <rect key="frame" x="153" y="368" width="109" height="35"/>
+                                        <color key="backgroundColor" red="0.38700143910000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" Menu"/>
+                                        <connections>
+                                            <segue destination="Urh-DA-66t" kind="show" id="N4J-gd-9ZP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsc-Pb-5IX" userLabel="Count Down Label">
-                                <rect key="frame" x="119" y="300" width="136" height="68"/>
+                                <rect key="frame" x="139" y="334" width="136" height="68"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -514,7 +514,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LK3-ci-j5X"/>
-        <segue reference="oev-bD-PMM"/>
+        <segue reference="hgl-o2-Y3E"/>
+        <segue reference="RCf-sj-spX"/>
     </inferredMetricsTieBreakers>
 </document>

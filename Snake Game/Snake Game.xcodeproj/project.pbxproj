@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				8AF199A51BB4B3C500019A83 /* AppDelegate.swift */,
+				8AF199A71BB4B3C500019A83 /* ViewController.swift */,
 				8AAD92CF1BFE16130017A61B /* ViewController2.swift */,
 				8A8647321C19D34D0093A8A4 /* ViewController3.swift */,
 				8A553A831BBB4C330062887C /* SnakeLocation.swift */,
@@ -131,7 +132,6 @@
 				8AF199AC1BB4B3C500019A83 /* Assets.xcassets */,
 				8A7D47341BE987C300D53B3C /* apple.png */,
 				8AF199AE1BB4B3C500019A83 /* LaunchScreen.storyboard */,
-				8AF199A71BB4B3C500019A83 /* ViewController.swift */,
 				8AF199B11BB4B3C500019A83 /* Info.plist */,
 			);
 			path = "Snake Game";

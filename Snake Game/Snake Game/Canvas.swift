@@ -11,7 +11,7 @@ import UIKit
 class CanvasView: UIView {
     var map: GameMap!
     var snake: SnakeLocation!
-    
+    var spawn: Apple!
     override func drawRect(rect: CGRect) {
         // Set up for later
         let context = UIGraphicsGetCurrentContext()

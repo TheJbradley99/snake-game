@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var board: GameMap!
     var timer: NSTimer!
     var snake: SnakeLocation!
+    var spawn: Apple!
     
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     @IBOutlet weak var scoreDisplay: UILabel!
@@ -234,14 +235,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         // eat apples
-        for (var i = 0; i < board.apples.count; i++) {
-            let apple = board.apples[i]
-            if (head.x == apple.x && head.y == apple.y) {
-                snake.tail.append(Point(X: apple.x, Y: apple.y))
+        for (var i = 0; i < spawn.apples.count; i++) {
+            let apple1 = spawn.apples[i]
+            if (head.x == apple1.x && head.y == apple1.y) {
+                snake.tail.append(Point(X: apple1.x, Y: apple1.y))
                 snake.eat()
-                board.resetApple(i)
-                
-                
+                spawn.resetApple(i)
                 scoreDisplay.text = "\(snake.score)"
             }
         }
