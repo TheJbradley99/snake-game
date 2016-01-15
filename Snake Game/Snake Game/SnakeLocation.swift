@@ -19,8 +19,8 @@ class SnakeLocation: NSObject {
     var arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
     var highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
     var direction: NSString = "start"
-    var badApples = 10
-    var inWall = 10
+    var badApples = 7
+    var inWall = 5
     
     
     
@@ -41,27 +41,19 @@ class SnakeLocation: NSObject {
         }
         arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
         highScore = NSUserDefaults.standardUserDefaults().integerForKey("highScore")
-        
-        
+        // basic resets
         score = 0
         size = 0
         tail = [Point(X:sizeX / 2, Y:sizeY / 2)]
 
-        // Reset apples (really first spawning of apples)
-        spawn.spawn(applesNum, what: 1)
+        // Reset apples (really first spawning of apples and when you die)
+        spawn.spawn(applesNum, what: 1, whatFor: 1)
         
-        // stuff for overlapping apples
-        
-        
-            
-        
-        
- 
    }
 
     // rest the borad for arcade
     func reset2(board: ArcadeGameMap) {
-        
+        spawn = Spawner()
         // same thing as in the first reset function 
         NSUserDefaults.standardUserDefaults().integerForKey("highScore")
         NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
@@ -84,12 +76,7 @@ class SnakeLocation: NSObject {
         arcadeScore = 0
         
         // Reset apples
-        board.apples.removeAll()
-        for (var i = 0; i < applesNum; i++) {
-            let appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
-            let appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
-            board.apples.append(Point(X:appleX, Y:appleY))
-        }
+        spawn.spawn(applesNum, what: 1, whatFor: 2)
         // reset not so apple apples
         board.badApples.removeAll()
         for (var i = 0; i < badApples; i++) {

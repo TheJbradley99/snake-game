@@ -58,7 +58,7 @@ class AcradeCanvasView: UIView {
         }
         
         // Now draw the apples
-        for var apple in map.apples {
+        for var apple in apples2 {
             CGContextSetRGBFillColor(context, 0.9, 0.0, 0.0, 1.0)
             CGContextFillRect(context, CGRectMake(
                 CGFloat(apple.x * tileW + map.xoffset), CGFloat(apple.y * tileH + map.yoffset),

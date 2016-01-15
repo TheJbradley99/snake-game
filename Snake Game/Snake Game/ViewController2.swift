@@ -134,7 +134,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         
         snake = SnakeLocation()
         snake.reset2(board)
-        
+        spawn = Spawner()
         
         prefersStatusBarHidden()
         arcadeCanvas.map = board
@@ -234,12 +234,12 @@ class ViewController2: UIViewController, UITextFieldDelegate {
         }
         
         // eat apples
-        for (var i = 0; i < board.apples.count; i++) {
-            let apple = board.apples[i]
+        for (var i = 0; i < apples2.count; i++) {
+            let apple = apples2[i]
             if (head.x == apple.x && head.y == apple.y) {
                 snake.tail.append(Point(X: apple.x, Y: apple.y))
                 snake.arcadeEat()
-                board.resetApple(i)
+                spawn.respawn(i, what: 1, whatFor: 2)
                 
                 
                 arcadeScoreDisplay.text = "\(snake.arcadeScore)"

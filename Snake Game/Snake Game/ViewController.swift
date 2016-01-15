@@ -240,7 +240,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if (head.x == apple1.x && head.y == apple1.y) {
                 snake.tail.append(Point(X: apple1.x, Y: apple1.y))
                 snake.eat()
-                spawn.respawn(i, what: 1)
+                spawn.respawn(i, what: 1, whatFor: 1)
                 scoreDisplay.text = "\(snake.score)"
             }
         }
