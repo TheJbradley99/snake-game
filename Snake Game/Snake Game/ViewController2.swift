@@ -13,6 +13,7 @@ class ViewController2: UIViewController, UITextFieldDelegate {
     var board: ArcadeGameMap!
     var timer: NSTimer!
     var snake: SnakeLocation!
+    var spawn: Spawner!
     
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     @IBOutlet weak var arcadeScoreDisplay: UILabel!

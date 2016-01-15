@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var board: GameMap!
     var timer: NSTimer!
     var snake: SnakeLocation!
-    
+    var spawn: Spawner!
     
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     @IBOutlet weak var scoreDisplay: UILabel!
@@ -132,7 +132,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        spawn = Spawner()
         board = GameMap()
         board.makeBoard()
         
@@ -170,11 +170,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         var head = snake.tail[0]
         // collition detector
-        if (head.x >= board.sizeX - 1) {
+        if (head.x >= sizeX - 1) {
             snake.direction = "stop"
         }else if (head.x <= 0){
             snake.direction = "stop"
-        }else if (head.y >= board.sizeY - 1) {
+        }else if (head.y >= sizeY - 1) {
             snake.direction = "stop"
         }else if (head.y <= 0){
             snake.direction = "stop"
@@ -235,12 +235,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         // eat apples
-        for (var i = 0; i < board.apples.count; i++) {
-            let apple1 = board.apples[i]
+        for (var i = 0; i < apples.count; i++) {
+            let apple1 = apples[i]
             if (head.x == apple1.x && head.y == apple1.y) {
                 snake.tail.append(Point(X: apple1.x, Y: apple1.y))
                 snake.eat()
-                board.resetApple(i)
+                spawn.respawn(i, what: 1)
                 scoreDisplay.text = "\(snake.score)"
             }
         }
