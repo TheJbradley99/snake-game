@@ -29,16 +29,18 @@ class GameMap: NSObject {
         var tester = 0
         var appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
         var appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
-        while tester <= test {
-            for var i = 1; i < apples.count; i++ {
-                let apple = apples[i]
-                if appleX == apple.x && appleY == apple.y {
-                    appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
-                    appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
-                    print("overlap")
-                }
-                else{
-                   tester += 1
+        if NSUserDefaults.standardUserDefaults().integerForKey("appleNum") > 1 {
+            while tester <= test {
+                for var i = 1; i < apples.count; i++ {
+                    let apple = apples[i]
+                    if appleX == apple.x && appleY == apple.y {
+                        appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+                        appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+                        print("overlap1")
+                    }
+                    else{
+                       tester += 1
+                    }
                 }
             }
         }

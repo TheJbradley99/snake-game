@@ -10,11 +10,7 @@ import Foundation
 
 class SnakeLocation: NSObject {
     // lots of declrations of things
-<<<<<<< HEAD
-    var spawn: Apple!
-    var board: GameMap!
-=======
->>>>>>> parent of 29deb72... this is for commit reasons only nothing was commpleated
+
     var tail = [Point(X: 0, Y: 0)]
     var size = 0
     var apples = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
@@ -70,7 +66,7 @@ class SnakeLocation: NSObject {
                     appleX = Int(arc4random_uniform(UInt32(board.sizeX - 2)) + 1)
                     appleY = Int(arc4random_uniform(UInt32(board.sizeY - 2)) + 1)
                     board.apples[j] = Point(X: appleX, Y: appleY)
-                    print("overlap")
+                    print("overlap2")
                     
                 }
                 
