@@ -24,7 +24,6 @@ class Spawner: NSObject {
     func spawn(amount: Int, what: Int, whatFor: Int){
         initialize()
         var AorC = apples
-        for var i = 0; i < amount; i++ {
             if whatFor == 2 {
                 AorC = apples2
             }
@@ -32,20 +31,22 @@ class Spawner: NSObject {
                 AorC.removeAll()
                 var appleX = 0
                 var appleY = 0
-                for (var i = 0; i < snake.applesNum; i++) {
+                for (var o = 0; o < amount; o++) {
                     appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
                     appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
-                    AorC.append(Point(X:appleX, Y:appleY))
-                }
-                for var j = 1; j < AorC.count; j++ {
-                    for var i = 1; i < AorC.count; i++ {
-                        if appleX == AorC[i].x && appleY == AorC[i].y {
+                    for var i = 0; i < o; i++ {
+                        if appleX == AorC[i].x && appleY == AorC[i].y{
                             appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
                             appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
-                            AorC[j] = Point(X: appleX, Y: appleY)
                         }
-                        
                     }
+                    for var i = 0; i < snake.tail.count; i++ {
+                        if appleX == sizeX / 2 && appleY == sizeY / 2 {
+                            appleX = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+                            appleY = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+                        }
+                    }
+                    AorC.append(Point(X:appleX, Y:appleY))
                 }
                 if whatFor == 1 {
                     apples = AorC
@@ -55,10 +56,11 @@ class Spawner: NSObject {
                 }
             }
         }
-    }
+    
     
     
     func respawn(index: Int, what: Int, whatFor: Int) {
+        snake = SnakeLocation()
         var AorC = apples
         if whatFor == 2 {
             AorC = apples2
@@ -72,6 +74,17 @@ class Spawner: NSObject {
                     X = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
                     Y = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
                 }
+            for var i = 0; i < snake.score; i++ {
+                print(snake.score)
+                print(a)
+                if snake.tail[i].x == AorC[a].x && snake.tail[i].y == AorC[a].x {
+                    print("wow")
+                    X = Int(arc4random_uniform(UInt32(sizeX - 2)) + 1)
+                    Y = Int(arc4random_uniform(UInt32(sizeY - 2)) + 1)
+                }
+            }
+            
+                
             }
             AorC[index] = Point(X: X, Y: Y)
             if whatFor == 1 {

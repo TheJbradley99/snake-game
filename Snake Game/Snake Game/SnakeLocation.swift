@@ -13,7 +13,7 @@ class SnakeLocation: NSObject {
     var spawn: Spawner!
     var tail = [Point(X: 0, Y: 0)]
     var size = 0
-    var applesNum = NSUserDefaults.standardUserDefaults().integerForKey("appleNum")
+    var applesNum = 100
     var score = 0
     var arcadeScore = 0
     var arcadeHighScore = NSUserDefaults.standardUserDefaults().integerForKey("arcadeHighScore")
